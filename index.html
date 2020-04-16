@@ -14,9 +14,7 @@
     <script>
         $(document).ready(function(){
             $.get('https://ianluckraft.co.uk/wp-json/wp/v2/posts', function(posts){
-                console.log(posts);
                 posts.map(function(post){
-                    console.log(post);
                     var postItem = $('<li></li>')
                         .append(
                           $('<a></a>')
