@@ -5,20 +5,25 @@
     <title>Ian Luckraft | GitHub Pages</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Ian Luckraft GitHub Pages</h1>
-    <h2>Latest Blog Posts</h2>
-    <ul id="blog-posts"></ul>
+<body class="min-h-screen bg-gray-100">
+    <div class="container mx-auto">
+        <h1 class="pt-2 pb-2">Ian Luckraft GitHub Pages</h1>
+        <h2 class="pt-2 pb-2">Latest Blog Posts</h2>
+        <ul id="blog-posts"></ul>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
             $.get('https://ianluckraft.co.uk/wp-json/wp/v2/posts', function(posts){
                 posts.map(function(post){
                     var postItem = $('<li></li>')
+                        .addClass('pt-1 pb-1')
                         .append(
                           $('<a></a>')
                             .attr('href', post.link)
+                            .addClass('text-blue-700')
                             .html(post.title.rendered)
                         );
                     $('#blog-posts').append(postItem);

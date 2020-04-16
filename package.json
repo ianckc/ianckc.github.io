@@ -1,0 +1,26 @@
+{
+  "name": "ianckc.github.io",
+  "version": "1.0.0",
+  "description": "ianckc.github.io pages",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianckc/ianckc.github.io.git"
+  },
+  "author": "Ian Luckraft",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianckc/ianckc.github.io/issues"
+  },
+  "homepage": "https://github.com/ianckc/ianckc.github.io#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.5",
+    "grunt": "^1.1.0",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-postcss": "^0.9.0",
+    "tailwindcss": "^1.2.0"
+  }
+}
