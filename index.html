@@ -1,1 +1,32 @@
-<p>ianckc.github.io</p>
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <title>Ian Luckraft | GitHub Pages</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Ian Luckraft GitHub Pages</h1>
+    <h2>Latest Blog Posts</h2>
+    <ul id="blog-posts"></ul>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $.get('https://ianluckraft.co.uk/wp-json/wp/v2/posts', function(posts){
+                console.log(posts);
+                posts.map(function(post){
+                    console.log(post);
+                    var postItem = $('<li></li>')
+                        .append(
+                          $('<a></a>')
+                            .attr('href', post.link)
+                            .html(post.title.rendered)
+                        );
+                    $('#blog-posts').append(postItem);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
