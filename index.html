@@ -7,15 +7,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/main.css" rel="stylesheet">
 </head>
-<body class="min-h-screen bg-gray-100">
-    <div class="container mx-auto">
-        <h1 class="pt-2 pb-2">Ian Luckraft GitHub Pages</h1>
-        <h2 class="pt-2 pb-2">Latest Blog Posts</h2>
-        <ul id="blog-posts"></ul>
+<body class="font-sans">
+    <div class="container mx-auto mt-2">
+        <div class="flex flex-wrap">
+            <div id="bio" class="w-full sm:1/3 md:w-1/4 lg:1/6 mb-2">
+                <h1>Ian Luckraft</h1>
+                <h2>ianckc</h2>
+                <div>
+                    <img src="img/cropped-new-banner.jpg" alt="Ian Luckraft">
+                </div>
+            </div>
+            <main class="w-full sm:2/3 md:w-3/4 lg5/6 mb-2">
+                <div id="tabs">
+                    <nav>
+                        <ul class="flex border-b">
+                            <li class="-mb-px mr-1">
+                                <a href="#blog-posts">Blog posts</a>
+                            </li>
+                            <li class="-mb-px mr-1">
+                                <a href="#twitter">Twitter</a>
+                            </li>
+                            <li class="-mb-px mr-1">
+                                <a href="#github">GitHub</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div>
+                        <div id="blog-posts" class="tab-content">
+                            <h3>Blog Posts</h3>
+                            <ul id="latest-blog-posts"></ul>
+                        </div>
+                        <div id="twitter" class="tab-content">
+                            <h3>Twitter</h3>
+                            <a class="twitter-timeline" href="https://twitter.com/ianckc?ref_src=twsrc%5Etfw">Tweets by ianckc</a>
+                        </div>
+                        <div id="github" class="tab-content">
+                            <h3>GitHub</h3>
+                            <ul id="github-events"></ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="w-full"></footer>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
+            $('#tabs').tabs();
             $.get('https://ianluckraft.co.uk/wp-json/wp/v2/posts', function(posts){
                 posts.map(function(post){
                     var postItem = $('<li></li>')
@@ -26,10 +66,26 @@
                             .addClass('text-blue-700')
                             .html(post.title.rendered)
                         );
-                    $('#blog-posts').append(postItem);
+                    $('#latest-blog-posts').append(postItem);
+                });
+            });
+            $.get('https://api.github.com/users/ianckc/events', function(events){
+                events.map(function(event){
+                    if (event.payload.commits) {
+                        var githubEvent = $('<li></li>')
+                        .addClass('pt-1 pb-1')
+                        .append(
+                            $('<a></a>')
+                                .attr('href', event.payload.commits[0].url)
+                                .addClass('text-blue-700')
+                                .html(event.payload.commits[0].message)
+                        );
+                        $('#github-events').append(githubEvent);
+                    }
                 });
             });
         });
     </script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
