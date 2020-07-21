@@ -16,12 +16,12 @@
   },
   "homepage": "https://github.com/ianckc/ianckc.github.io#readme",
   "devDependencies": {
-    "autoprefixer": "^9.7.5",
-    "grunt": "^1.1.0",
+    "autoprefixer": "^9.8.5",
+    "grunt": "^1.2.1",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-cssmin": "^3.0.0",
     "grunt-postcss": "^0.9.0",
-    "tailwindcss": "^1.2.0",
-    "lodash": ">=4.17.12"
+    "lodash": "^4.17.19",
+    "tailwindcss": "^1.5.1"
   }
 }
