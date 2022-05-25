@@ -18,7 +18,7 @@
   "devDependencies": {
     "postcss": "8.3.0",
     "autoprefixer": "^9.8.6",
-    "grunt": "^1.4.1",
+    "grunt": "^1.5.3",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-cssmin": "^3.0.0",
     "grunt-postcss": "^0.9.0",
